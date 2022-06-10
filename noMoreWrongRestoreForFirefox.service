@@ -1,0 +1,8 @@
+[Unit]
+Description=Stops firefox from restoring sessions after startup when restoring is disabled
+
+[Service]
+ExecStart=/usr/share/noMoreWrongRestoreForFirefox/noMoreWrongRestoreForFirefox.sh
+
+[Install]
+WantedBy=multi-user.target
