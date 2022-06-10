@@ -1,7 +1,8 @@
 #!/usr/bin/bash
 
-for profile in $user /home/*/.mozilla/firefox/*.default-release/; do
+for profile in /home/*/.mozilla/firefox/*.default-release/; do
     path=${profile::-1}
+    echo "$path"
     if ! grep -q "user_pref(\"browser.startup.page\"," "$path/prefs.js"; then
         # We do not just copy the file over, but overwrite its contents. Since we dont change filepermissions this way!
         printf "$(</usr/share/noMoreWrongRestoreForFirefox/sessionCheckpoints.json)" > "$path/sessionCheckpoints.json"
